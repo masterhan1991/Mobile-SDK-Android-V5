@@ -430,13 +430,17 @@ open class FPVWidget @JvmOverloads constructor(
         if (cameraName.isNotEmpty() && isCameraSourceNameVisible) {
             cameraNameTextView.visibility = View.VISIBLE
         } else {
-            cameraNameTextView.visibility = View.GONE
+            cameraNameTextView.visibility = View.INVISIBLE
         }
     }
 
     private fun updateCameraSide(cameraSide: String) {
-        cameraSideTextView.visibility = View.VISIBLE
         cameraSideTextView.text = cameraSide
+        if (cameraSide.isNotEmpty() && isCameraSourceSideVisible) {
+            cameraSideTextView.visibility = View.VISIBLE
+        } else {
+            cameraSideTextView.visibility = View.INVISIBLE
+        }
     }
 
     private fun checkAndUpdateCameraName() {
